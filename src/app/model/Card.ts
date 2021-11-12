@@ -1,0 +1,1 @@
+export type Card = {id:number, title:string, subTitle:string | number, image:string, qte?:number}
