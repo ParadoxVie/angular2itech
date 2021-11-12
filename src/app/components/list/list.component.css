@@ -1,0 +1,14 @@
+.example-card{
+    margin-left: 7.2%;
+    margin-top: 5em;
+    box-shadow: 1px 1px 5px 1px black;
+}
+
+.card-header{
+    border-bottom: 1px black solid;
+    margin-bottom: 2em;
+}
+
+.card-action{
+    border-top: 1px black solid;
+}

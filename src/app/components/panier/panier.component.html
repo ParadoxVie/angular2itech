@@ -1,24 +1,27 @@
 <h2>Votre panier</h2>
 
-<p *ngIf="data == 'non' || data == null">Votre panier est vide !</p>
+<p *ngIf="data.length == 0">Votre panier est vide !</p>
 
-<table>
-    <thead>
-        <th>Objet</th>
-        <th>Prix Unitaire</th>
-        <th>Quantité</th>
-        <th>Prix Total pour l'objet</th>
-        <th>Delete</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let datum of data">
-            <td>{{datum.title}}</td>
-            <td>{{datum.subTitle}} €</td>
-            <td>{{datum.qte}}</td>
-            <td>{{datum.qte * datum.subTitle}} €</td>
-            <td>🗑️</td>
-        </tr>
-    </tbody>
-</table>
+<div class="panier" *ngIf="data.length != 0">
+    <table>
+        <thead>
+            <th>Objet</th>
+            <th>Prix Unitaire</th>
+            <th>Quantité</th>
+            <th>Prix Total pour l'objet</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let datum of data">
+                <td>{{datum.title}}</td>
+                <td>{{datum.subTitle}} €</td>
+                <td>{{datum.qte}}</td>
+                <td>{{datum.qte * datum.subTitle}} €</td>
+                <td (click)="deleteOneProduct(datum)">🗑️</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h4>Total de votre panier : {{tot}} € <span><b (click)="tot = 0; data = []">PAYER</b></span> </h4>
+</div>
 
-<h4>Total de votre panier : {{tot}} €</h4>
